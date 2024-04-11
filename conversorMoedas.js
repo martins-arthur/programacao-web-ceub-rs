@@ -14,16 +14,43 @@ let valoresConversao = {
 }
 
 
+
+function limpar(){
+    let valorUsuario = document.getElementById("valor-usuario");
+    let resultado = document.getElementById("resultado");
+
+    valorUsuario.value = "";
+    resultado.textContent = "";
+}
+
+
 function converter() {
     let valorUsuario = document.getElementById("valor-usuario").value;
 
     let moedaOrigem = document.getElementById("moeda1").value;
     let moedaDestino = document.getElementById("moeda2").value;
 
+    if(moedaOrigem == moedaDestino){
+        alert("As moedas são iguias, não é possivel converter");
+        return;
+    }
+
+
     let conversao = valorUsuario * valoresConversao[moedaOrigem][moedaDestino];
 
+    let simbolo = "";
+    if(moedaDestino == "real"){
+       simbolo = "R$"; 
+    }
+    if(moedaDestino == "dolar"){
+        simbolo = "US$";
+    }
+    if(moedaDestino == "euro"){
+        simbolo = "€";
+    }
+
     let paragrafoResultado = document.getElementById("resultado");
-    paragrafoResultado.textContent = conversao;
+    paragrafoResultado.textContent = simbolo + " " + conversao.toFixed(2);
 
 }
 
