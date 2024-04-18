@@ -45,8 +45,15 @@ valorUsuario.addEventListener("keypress", function(event) {
 
 });
 
+if(localStorage.getItem("aceitouCookie") == "1") {
+    aceitaMensagem();
+}
+
 function aceitaMensagem() {
-    alert("Usuário aceitou termos do site");
+    let divMensagemUsuario = document.getElementById("container-mensagem-usuario");
+    divMensagemUsuario.classList.add("oculto");
+
+    localStorage.setItem("aceitouCookie", "1");
 }
 
 function limpar() {
