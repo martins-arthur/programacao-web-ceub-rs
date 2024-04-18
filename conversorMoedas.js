@@ -93,10 +93,27 @@ function converter() {
         simbolo = "€";
     }
 
+let resultadoDaConversao = {
+    valor: valorUsuario,
+    moeda1: moedaOrigem,
+    moeda2: moedaDestino,
+    resultado: conversao
+}
+    salvarResultadoNoHistorioco(resultadoDaConversao);
 
     let paragrafoResultado = document.getElementById("resultado");
     paragrafoResultado.textContent = simbolo + " " + conversao.toFixed(2);
 
+}
+
+function salvarResultadoNoHistorioco(conversao) {
+    let conversaoEmJson = JSON.stringify(conversao);
+    localStorage.setItem("historico", conversaoEmJson);
+}
+
+function recuperaHistoriocoDeConversoes() {
+    let historico = localStorage.getItem("historico");
+    let historicoConvertido = JSON.parse(historico);
 }
 
 function inverter() {
