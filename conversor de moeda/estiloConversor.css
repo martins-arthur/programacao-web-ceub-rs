@@ -22,7 +22,7 @@ input, select, button {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: bisque;
+    background-color: #e0e4ce;
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -34,6 +34,7 @@ input, select, button {
 
 #titulo { 
     margin-bottom: 50px;
+    font-family: "Poppins", sans-serif;
 }
 
 #resultado {
