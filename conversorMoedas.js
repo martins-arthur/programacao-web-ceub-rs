@@ -107,13 +107,22 @@ let resultadoDaConversao = {
 }
 
 function salvarResultadoNoHistorioco(conversao) {
-    let conversaoEmJson = JSON.stringify(conversao);
+    let historico = recuperaHistoriocoDeConversoes();
+
+    historico.push(conversao);
+    
+    let conversaoEmJson = JSON.stringify(historico);
     localStorage.setItem("historico", conversaoEmJson);
 }
 
 function recuperaHistoriocoDeConversoes() {
     let historico = localStorage.getItem("historico");
+    
+    if(!historico) {
+        return [];
+    }
     let historicoConvertido = JSON.parse(historico);
+    return historicoConvertido;
 }
 
 function inverter() {
