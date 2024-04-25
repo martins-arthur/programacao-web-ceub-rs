@@ -64,7 +64,18 @@ function limpar() {
     resultado.textContent = "";
 }
 
+function buscaAPI() {
+    let url = "https://economia.awesomeapi.com.br/json/last/USD-BRL";
+    fetch(url).then(function(data){
+        if(data.status == 200) {
+            
+        }
+    }).catch();
+}
+
 function converter() {
+    buscaAPI();
+
     let valorUsuario = document.getElementById("valor-usuario").value;
 
     let moedaOrigem  = document.getElementById("moeda1").value;
@@ -72,6 +83,11 @@ function converter() {
 
     if(valorUsuario == "") {
         alert("Valor não pode ser vazio!");
+        return;
+    }
+
+    if(valorUsuario < 0) {
+        alert("Valor não pode ser negativo");
         return;
     }
 
@@ -132,4 +148,9 @@ function inverter() {
 
     document.getElementById("moeda1").value = moeda2;
     document.getElementById("moeda2").value = moeda1;
+}
+
+function buscaAPI() {
+    let url = "https://economia.awesomeapi.com.br/json/last/USD-BRL";
+    fetch(url).then().catch();
 }
